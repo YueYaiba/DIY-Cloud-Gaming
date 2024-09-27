@@ -34,9 +34,9 @@ I recommend this option as I find it to be the simplest and fastest to setup, si
 
 ## Android Software
 
-Install [Moonlight](https://play.google.com/store/apps/details?id=com.limelight) from the Google Play Store.  
-Install [Termux](https://github.com/termux/termux-app/releases), just download and install the universal apk for the latest stable release.  
-Install [Termux-Widget](https://github.com/termux/termux-widget/releases) do NOT download any termux stuff from the Google Play Store, those apps are not updated anymore.  
+• Install [Moonlight](https://play.google.com/store/apps/details?id=com.limelight) from the Google Play Store.  
+• Install [Termux](https://github.com/termux/termux-app/releases), just download and install the universal apk for the latest stable release.  
+• Install [Termux-Widget](https://github.com/termux/termux-widget/releases) do NOT download any termux stuff from the Google Play Store, those apps are not updated anymore.  
 
 # Setting Up WoL
 
@@ -51,7 +51,18 @@ For future reference if you are having trouble making Wake on Lan actually do an
 • Disable all power saving options from bios and from the "Advanced" tab of your network adapter's settings.
 • Setting your network to private instead of public.  
 • Disable hibernation.  
+• Open UDP ports 7 and 9  
 
 # Setting Up Your Raspberry Pi
+
+For simplicity this guide will assume we are working with at least a Raspberry 4 2GB or a more recent model, however even a Raspberry Pi Zero with wireless connectivity could work, we will also set a VPN to your local network and while it is not mandatory, it is highly recommended.
+
+• If you do not set up the VPN, replace all local IPs in this guide by Public IPs, or if you set up the VPN with anything below a Raspberry Pi 4, only connect to the VPN to send the WoL packet, do not use it while actually playing games as it will slow your internet speed down.
+
+##Creating SSH keys
+
+1. First we will need to setup SSH keys for your Windows PC (most likely works the exact same on Linux). 
+
+• Open cmd on Windows, and type `ssh-keygen`.
 
 # WoL From Your Device 
