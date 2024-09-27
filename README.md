@@ -34,10 +34,10 @@ I recommend this option as I find it to be the simplest and fastest to setup, si
 
 ## Android Software
 
-• Install [Moonlight](https://play.google.com/store/apps/details?id=com.limelight) from the Google Play Store.  
-• Install [Termux](https://github.com/termux/termux-app/releases), just download and install the universal apk for the latest stable release.  
-• Install [Termux-Widget](https://github.com/termux/termux-widget/releases) do NOT download any termux stuff from the Google Play Store, those apps are not updated anymore.  
-• Install [Wireguard](https://download.wireguard.com/android-client/) (Needed for the VPN setup)
+• Install [Moonlight](https://play.google.com/store/apps/details?id=com.limelight) from the Google Play Store. This is to actually stream your pc to your device.   
+• Install [Termux](https://github.com/termux/termux-app/releases), just download and install the universal apk for the latest stable release. This is a command terminal for android.  
+• Install [Termux-Widget](https://github.com/termux/termux-widget/releases) do NOT download any termux stuff from the Google Play Store, those apps are not updated anymore. This is a widget tool to run scripts as shortcuts on your android homescreen.  
+• Install [Wireguard](https://download.wireguard.com/android-client/) (Needed for the VPN setup)  
 
 At this point you can already setup Moonlight and Sunshine and stream your PC to your device on your local network and see how the performance is.
 
@@ -51,7 +51,7 @@ Then go to Windows > Win+X > Device Manager > Network Adapters > Right click on 
 
 For future reference if you are having trouble making Wake on Lan actually do anything, you can try some of these options.
 
-• Disable all power saving options from bios and from the "Advanced" tab of your network adapter's settings.
+• Disable all power saving options from bios and from the "Advanced" tab of your network adapter's settings, also enable "Enable Shut Down WoL" to power on from a power off state.
 • Setting your network to private instead of public.  
 • Disable hibernation.  
 • Open UDP ports 7 and 9  
@@ -111,7 +111,7 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 am start --user 0 -a android.settings.action.MANAGE_OVERLAY_PERMISSION -d "package:com.termux"
 ```
 
-• Might aswell enter these for later too
+• Might aswell enter these for later too (Creating a shortcuts and tasks folder for our WoL shortcut later)
 ```
 mkdir -p /data/data/com.termux/files/home/.shortcuts
 chmod 700 -R /data/data/com.termux/files/home/.shortcuts
@@ -130,3 +130,13 @@ apt install openssh
 ```
 ssh-keygen -b 4096 -t rsa
 ```
+Same thing, leave file name and passphrase blank, just press enter.
+
+You can get your key by typing `nano ~/.ssh/id_rsa.pub` and copy pasting the key somewhere.
+
+• Now go back to your pc with your newly acquired key, connect back to your raspberry via ssh and type `nano ./.ssh/authorized_keys` and just paste the key on the next line.
+
+You device can now connect to the raspberry, and at this point, the setup is already complete, but we are gonna make it a bit more smooth.
+
+### Termux-Widget
+
