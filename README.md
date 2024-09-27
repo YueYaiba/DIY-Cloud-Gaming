@@ -137,7 +137,7 @@ You can get your key by typing `nano ~/.ssh/id_rsa.pub` and copy pasting the key
 
 • Now go back to your pc with your newly acquired key, connect back to your raspberry via ssh and type `nano ./.ssh/authorized_keys` and just paste the key on the next line, Ctrl+X then "Y" to confirm the changes, then enter to leave the file name unchanged.  
 
-You device can now connect to the raspberry, and at this point, the setup is already complete (enter [this command](##now-type)), but we are gonna make it a bit more smooth.
+You device can now connect to the raspberry, and at this point, the setup is already complete (refer to the example command in the next session) , but we are gonna make it a bit more smooth.
 
 ### Termux-Widget
 
@@ -149,7 +149,7 @@ nano ~/.shortcuts/name-of-the-shortcut
 ```
 *You can choose any name for the shortcut
 
-### Now type:
+Now type:
 ```
 ssh -t your-raspberry-username@local-ip-of-the-raspberry 'sudo etherwake mac:address:of:your:computer'
 exit
