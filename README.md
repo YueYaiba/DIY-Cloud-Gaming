@@ -96,7 +96,7 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 
 • Then install etherwake `sudo apt install etherwake`.
 
-• Install midnight commander (not mandatory but that's what I use) `sudo apt install mc`
+• Install midnight commander (not mandatory but that's what I use) ```sudo apt install mc```
 
 # WoL From Your Device 
 
