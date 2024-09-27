@@ -8,6 +8,14 @@
 
 # Hardware
 
+## You basically need 4 things to make this work.
+
+### Your computer
+### Your android device
+### A Raspberry Pi (Refer to the relevant section for which models work)
+### A router with port forwarding
+
+
 # Setting Up Lan Cloud Gaming
 
 # Setting Up WoL
