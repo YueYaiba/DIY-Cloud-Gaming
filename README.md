@@ -106,7 +106,10 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 
 ### Termux
 
-• Lets setup permissions first, open termux and type `termux-setup-storage` and allow, then type `am start --user 0 -a android.settings.action.MANAGE_OVERLAY_PERMISSION -d "package:com.termux"` and allow it too.
+• Lets setup permissions first, open termux and type `termux-setup-storage` and allow, then type and allow 
+```
+am start --user 0 -a android.settings.action.MANAGE_OVERLAY_PERMISSION -d "package:com.termux"
+```
 
 • Might aswell enter these for later too
 ```
