@@ -2,4 +2,4 @@
 
 [Hardware](#hardware)
 
-#Hardware
+# Hardware
