@@ -12,6 +12,6 @@
 
 # Setting Up WoL
 
-#Setting Up Your Raspberry Pi
+# Setting Up Your Raspberry Pi
 
-#WoL From Your Device 
+# WoL From Your Device 
