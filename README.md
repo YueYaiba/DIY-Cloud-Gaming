@@ -121,3 +121,12 @@ chmod 700 -R /data/data/com.termux/files/home/.shortcuts
 mkdir -p /data/data/com.termux/files/home/.shortcuts/tasks
 chmod 700 -R /data/data/com.termux/files/home/.shortcuts/tasks
 ```
+
+Now let's get an ssh key for your device too!
+
+```
+apt install openssh
+```
+```
+ssh-keygen -b 4096 -t rsa
+```
