@@ -27,7 +27,9 @@ You can download and use [Geforce Experience](https://github.com/moonlight-strea
 ### Nvidia, AMD and Intel
 
 I recommend this option as I find it to be the simplest and fastest to setup, simply download and install [Sunshine](https://github.com/LizardByte/Sunshine)  
+
 • Either enable UPnP on your router and on Sunshine and let it do the work, or open the ports Sunshine tells you on the "Network" tab of the settings.  
+
 • In order to be able to use sunshine before even logging in on Windows, you must set it as a service, for that go to the installation folder of Sunshine, then "scripts" then run the "install-service.bat". This will start Sunshine before you even log in (the keyboard of your android device might not work to type in the password, you can simply click the icon in the bottom right of the Windows login screen to open and use the virtual keyboard instead).  
 
 ## Android Software
