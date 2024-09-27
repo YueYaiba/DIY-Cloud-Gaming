@@ -13,7 +13,7 @@
 
 • Your computer  
 • Your android device  
-• A Raspberry Pi (Refer to the relevant section for which models work)  and an micro sd card.
+• A Raspberry Pi (Refer to the relevant section for which models work)  and an micro sd card.  
 • A router with port forwarding  
 
 
