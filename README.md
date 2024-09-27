@@ -12,7 +12,7 @@
 
 • Your computer  
 • Your android device  
-• A Raspberry Pi (Refer to the relevant section for which models work)  
+• A Raspberry Pi (Refer to the relevant section for which models work)  and an micro sd card.
 • A router with port forwarding  
 
 
@@ -37,6 +37,9 @@ I recommend this option as I find it to be the simplest and fastest to setup, si
 • Install [Moonlight](https://play.google.com/store/apps/details?id=com.limelight) from the Google Play Store.  
 • Install [Termux](https://github.com/termux/termux-app/releases), just download and install the universal apk for the latest stable release.  
 • Install [Termux-Widget](https://github.com/termux/termux-widget/releases) do NOT download any termux stuff from the Google Play Store, those apps are not updated anymore.  
+• Install [Wireguard](https://download.wireguard.com/android-client/) (Needed for the VPN setup)
+
+At this point you can already setup Moonlight and Sunshine and stream your PC to your device on your local network and see how the performance is.
 
 # Setting Up WoL
 
@@ -59,10 +62,44 @@ For simplicity this guide will assume we are working with at least a Raspberry 4
 
 • If you do not set up the VPN, replace all local IPs in this guide by Public IPs, or if you set up the VPN with anything below a Raspberry Pi 4, only connect to the VPN to send the WoL packet, do not use it while actually playing games as it will slow your internet speed down.
 
-##Creating SSH keys
+## Creating SSH keys
 
-1. First we will need to setup SSH keys for your Windows PC (most likely works the exact same on Linux). 
+First we will need to setup SSH keys for your Windows PC (most likely works the exact same on Linux). 
 
-• Open cmd on Windows, and type `ssh-keygen`.
+• Open cmd on Windows, and type `ssh-keygen`.  
+You can leave the name file blank and the passphrase too, press enter.
+
+•One the keys are generated, go to your windows drive and go to the .ssh folder, it should be in `C:\Users\'yourname'\.ssh
+Open the file `id_rsa.pub` with any text editor such as notepad, keep that for later.
+
+## Setting up the image
+
+• Download the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+
+• Mounth the micro sd card on your pc and launch the Imager, select your model, OS (recommended), and locate your SD Card.
+
+• When you click "Next" it will prompt you if you want to open custom settings, open them.
+
+• Set up your username and password, then go to services, tick "Enable SSH" and choose authentification with public key, then paste the key you got from `id_rsa.pub`.  
+
+• Install the image on your SD card and plug it into your Raspberry Pi.
+
+• I highly recommend setting up a VPN to your local network with [PiVPN](https://www.pivpn.io/) which will make things easier (and hey, it has other cool uses too, might aswell have it).  
+
+- Open cmd on your computer and type `ssh your-raspberry-username@local-ip-of-the-raspberry` if you entered the correct ssh public key in the Imager, it should connect! You are now basically in the command terminal of your raspberry.  
+
+- Enter the command `curl -L https://install.pivpn.io | bash` and follow the installation prompts, the installer even tells you what to answer when you don't know what it's talking about, it's super easy! Pick Wireguard as the VPN.
+
+- Once the VPN is setup, enter the command `pivpn add` and name the client (the name of your device for example).
+
+- Get the newly created config file over to your android device (you can get it to your pc or a usb drive first, for that you can look up how to do file transfer via ssh or use something like midnight commander to transfer it to a usb drive).
+
+• Then install etherwake `sudo apt install etherwake`.
+
+• Install midnight commander (not mandatory but that's what I use) `sudo apt install mc`
 
 # WoL From Your Device 
+
+• Get the config file from the VPN you got, open the wireguard app and set up a VPN from a config file, congrats your device can now conect to your local netword from anywhere at anytime!
+
+• 
