@@ -111,5 +111,7 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 • Might aswell enter these for later too ```mkdir -p /data/data/com.termux/files/home/.shortcuts
 chmod 700 -R /data/data/com.termux/files/home/.shortcuts```
 
-```mkdir -p /data/data/com.termux/files/home/.shortcuts/tasks```
+```
+mkdir -p /data/data/com.termux/files/home/.shortcuts/tasks
 chmod 700 -R /data/data/com.termux/files/home/.shortcuts/tasks
+```
