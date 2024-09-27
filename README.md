@@ -96,10 +96,20 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 
 • Then install etherwake `sudo apt install etherwake`.
 
-• Install midnight commander (not mandatory but that's what I use) ```sudo apt install mc```
+• Install midnight commander (not mandatory but that's what I use) `sudo apt install mc`
 
 # WoL From Your Device 
 
+### Wireguard
+
 • Get the config file from the VPN you got, open the wireguard app and set up a VPN from a config file, congrats your device can now conect to your local netword from anywhere at anytime!
 
-• 
+### Termux
+
+• Lets setup permissions first, open termux and type `termux-setup-storage` and allow, then type `am start --user 0 -a android.settings.action.MANAGE_OVERLAY_PERMISSION -d "package:com.termux"` and allow it too.
+
+• Might aswell enter these for later too ```mkdir -p /data/data/com.termux/files/home/.shortcuts
+chmod 700 -R /data/data/com.termux/files/home/.shortcuts```
+
+```mkdir -p /data/data/com.termux/files/home/.shortcuts/tasks
+chmod 700 -R /data/data/com.termux/files/home/.shortcuts/tasks```
