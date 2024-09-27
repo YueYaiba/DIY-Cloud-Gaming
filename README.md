@@ -5,6 +5,7 @@
 [Setting up Wake on Lan](#setting-up-wol)  
 [Setting up your Raspberry Pi](#setting-up-your-raspberry-pi)  
 [Turn on/wake your computer from your device](#wol-from-your-device)  
+[Disclaimer and alternatives](#disclaimer-and-alternatives)
 
 # Hardware
 
@@ -60,7 +61,7 @@ For future reference if you are having trouble making Wake on Lan actually do an
 
 For simplicity this guide will assume we are working with at least a Raspberry 4 2GB or a more recent model, however even a Raspberry Pi Zero with wireless connectivity could work, we will also set a VPN to your local network and while it is not mandatory, it is highly recommended.
 
-• If you do not set up the VPN, replace all local IPs in this guide by Public IPs, or if you set up the VPN with anything below a Raspberry Pi 4, only connect to the VPN to send the WoL packet, do not use it while actually playing games as it will slow your internet speed down.
+• If you do not set up the VPN, replace all local IPs in this guide by Public IPs, or if you set up the VPN with anything below a Raspberry Pi 4, only connect to the VPN to send the WoL packet, do not use it while actually playing games as it will slow your internet speed down. Also make sure to redirect the ssh ports.
 
 ## Creating SSH keys
 
@@ -88,7 +89,7 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 
 - Open cmd on your computer and type `ssh your-raspberry-username@local-ip-of-the-raspberry` if you entered the correct ssh public key in the Imager, it should connect! You are now basically in the command terminal of your raspberry.  
 
-- Enter the command `curl -L https://install.pivpn.io | bash` and follow the installation prompts, the installer even tells you what to answer when you don't know what it's talking about, it's super easy! Pick Wireguard as the VPN.
+- Enter the command `curl -L https://install.pivpn.io | bash` and follow the installation prompts, the installer even tells you what to answer when you don't know what it's talking about, it's super easy! Pick Wireguard as the VPN and forward the ports it tells you.
 
 - Once the VPN is setup, enter the command `pivpn add` and name the client (the name of your device for example).
 
@@ -96,7 +97,7 @@ Open the file `id_rsa.pub` with any text editor such as notepad, keep that for l
 
 • Then install etherwake `sudo apt install etherwake`.
 
-• Install midnight commander (not mandatory but that's what I use) `sudo apt install mc`
+• Install midnight commander (not mandatory but that's what I use) `sudo apt install mc` (can be used anytime "nano" is mentioned)
 
 # WoL From Your Device 
 
@@ -134,9 +135,38 @@ Same thing, leave file name and passphrase blank, just press enter.
 
 You can get your key by typing `nano ~/.ssh/id_rsa.pub` and copy pasting the key somewhere.
 
-• Now go back to your pc with your newly acquired key, connect back to your raspberry via ssh and type `nano ./.ssh/authorized_keys` and just paste the key on the next line.
+• Now go back to your pc with your newly acquired key, connect back to your raspberry via ssh and type `nano ./.ssh/authorized_keys` and just paste the key on the next line, Ctrl+X then "Y" to confirm the changes, then enter to leave the file name unchanged.  
 
 You device can now connect to the raspberry, and at this point, the setup is already complete, but we are gonna make it a bit more smooth.
 
 ### Termux-Widget
+
+Now we will simply create a shortcut that will allow you to automatically send the Wake on Lan packet and close the terminal app by just pressing one app on your home screen.
+
+Go to termux and type 
+```
+nano ~/.shortcuts/name-of-the-shortcut
+```
+*You can choose any name for the shortcut
+
+Now type:
+```
+ssh -t your-raspberry-username@local-ip-of-the-raspberry 'sudo etherwake mac:address:of:your:computer'
+exit
+```
+For example:
+```
+ssh -t guide@255.255.0.255 'sudo etherwake 10:dd:b1:b9:1b:f1'
+exit
+```
+Ctrl+X then "Y" to confirm the changes, then enter to leave the file name unchanged.  
+
+Now just go on the home screen of your android device, long press on an empty spot, tap "widgets" and search for termux-widget, long press on the single app icon and put it on your home screen, choose the shortcut you created and you're done!
+Make sure that you are connected to the wireguard VPN when doing this if you put the local IP of your devices in the commands.
+
+# Disclaimer and alternatives
+
+• Your router may come with a VPN setup and a Wake on Lan functionality out of the box, rendering this entire process trivial, and this guide useless.
+
+• If it doesn't come with that out of the box, you may look into stuff such as openWRT which may also be an easier path for you if installing custom firmware on your router is an option.
 
