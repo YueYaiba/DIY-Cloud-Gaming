@@ -70,7 +70,7 @@ First we will need to setup SSH keys for your Windows PC (most likely works the 
 • Open cmd on Windows, and type `ssh-keygen`.  
 You can leave the name file blank and the passphrase too, press enter.
 
-•One the keys are generated, go to your windows drive and go to the .ssh folder, it should be in `C:\Users\'yourname'\.ssh
+•One the keys are generated, go to your windows drive and go to the .ssh folder, it should be in `C:\Users\'yourname'\.ssh`
 Open the file `id_rsa.pub` with any text editor such as notepad, keep that for later.
 
 ## Setting up the image
