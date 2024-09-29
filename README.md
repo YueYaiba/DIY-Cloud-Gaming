@@ -44,15 +44,15 @@ At this point you can already setup Moonlight and Sunshine and stream your PC to
 
 # Setting Up WoL
 
-First enter your bios and enable "Resume by PCIE/Networking Device", it should be in the "Advanced" Tab, but you can easely google how to do this on your specific motherboard.  
+First enter your bios and enable `Resume by PCIE/Networking Device`, it should be in the "Advanced" Tab, but you can easely google how to do this on your specific motherboard.  
 
 Then go to Windows > Win+X > Device Manager > Network Adapters > Right click on your Wireless/Ethernet adapter and click on properties.  
-• Go to Advanced and make sure "Wake on Magic Packet" is Enabled.  
-• Go to Power Management and either untick "Allow the computer to turn off the device to save power" or make sure "Allow the device to wake the computer" is ticked.
+• Go to Advanced and make sure `Wake on Magic Packet` is Enabled.  
+• Go to Power Management and either untick `Allow the computer to turn off the device to save power` or make sure `Allow the device to wake the computer` is ticked.
 
 For future reference if you are having trouble making Wake on Lan actually do anything, you can try some of these options.
 
-• Disable all power saving options from bios and from the "Advanced" tab of your network adapter's settings, also enable "Enable Shut Down WoL" to power on from a power off state.
+• Disable all power saving options from bios and from the "Advanced" tab of your network adapter's settings, also enable `Enable Shut Down WoL` to power on from a power off state.
 • Setting your network to private instead of public.  
 • Disable hibernation.  
 • Open UDP ports 7 and 9  
